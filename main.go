@@ -8,12 +8,14 @@ import (
 	"os/exec"
 	"strings"
 
+	routers "github.com/daniel-le97/pb/routers"
+
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/plugins/migratecmd"
 
 	// uncomment once you have at least one .go migration file in the "migrations" directory
-	_ "leploy/migrations"
-	_ "leploy/routers"
+	_ "github.com/daniel-le97/pb/migrations"
+	// _ "leploy/routers"
 )
 
 func isDockerInstalled() bool {
@@ -42,6 +44,7 @@ func installNixPacks() {
 	fmt.Println("nixpacks installed successfully!")
 }
 func installDocker() {
+    
 	// Run the Docker installation script
 	cmd := exec.Command("sh", "-c", "curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh")
 	cmd.Stdout = os.Stdout
@@ -106,7 +109,7 @@ func main() {
 		installNixPacks()
 	}
 	app := pocketbase.New()
-	initialize(app)
+	routers.Initialize(app)
 	// loosely check if it was executed using "go run"
 	isGoRun := strings.HasPrefix(os.Args[0], os.TempDir())
 

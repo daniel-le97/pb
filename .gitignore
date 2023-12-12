@@ -1,0 +1,79 @@
+node_modules
+coverage
+dist
+types
+.DS_Store
+*.log*
+*.conf*
+*.env*
+/pb_data/
+pb_data
+
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.obj
+
+# Go packages
+*.pkg
+*.egg
+*.egg-info/
+
+# The out directory contains all the build files and final binaries
+out/
+
+# Ignore any local .env files
+.env
+
+# Compiled Go files
+*.cgo
+*.so
+
+# Dependency directories
+/vendor/
+/Godeps/
+/vendor/
+/_vendor/
+
+# Compiled protobuf files
+*.pb.go
+
+# Log files and dump files
+*.log
+*.log.*
+*.crash
+
+# Temp files
+*.swp
+*.tmp
+
+# Build
+/build/
+/dist/
+
+# Database
+*.db
+
+# OSX
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# JetBrains GoLand
+.idea/
+
+# Visual Studio Code
+.vscode/
