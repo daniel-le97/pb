@@ -160,7 +160,8 @@ type EventPayload struct {
 		MasterBranch             string    `json:"master_branch"`
 	} `json:"repository"`
 	Pusher struct {
-		Name string `json:"name"`
+		Name  string `json:"name"`
+		Email any    `json:"email"`
 	} `json:"pusher"`
 	Ref     string        `json:"ref"`
 	Commits []CommitEntry `json:"commits"`

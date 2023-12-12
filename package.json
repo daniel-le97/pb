@@ -1,37 +1,23 @@
 {
-  "name": "package-name",
-  "version": "0.0.0",
-  "description": "",
-  "repository": "unjs/packageName",
-  "license": "MIT",
-  "sideEffects": false,
-  "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+    "name": "nuxt-app",
+    "private": true,
+    "type": "module",
+    "scripts": {
+      "build": "nuxt build",
+      "dev": "nuxt dev",
+      "generate": "nuxt generate",
+      "preview": "nuxt preview",
+      "postinstall": "nuxt prepare"
+    },
+    "devDependencies": {
+      "@nuxt/devtools": "latest",
+      "nuxt": "^3.8.2",
+      "vue": "^3.3.10",
+      "vue-router": "^4.2.5"
+    },
+    "dependencies": {
+      "pocketbase": "^0.20.1",
+      "smee-client": "^2.0.0"
     }
-  },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "unbuild",
-    "dev": "vitest dev",
-    "play": "jiti playground",
-    "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs .",
-    "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix",
-    "prepack": "pnpm run build",
-    "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
-    "test": "pnpm lint && pnpm test:types && vitest run --coverage",
-    "test:types": "tsc --noEmit --skipLibCheck"
-  },
-  "devDependencies": {},
-  "dependencies": {
-    "smee-client": "^2.0.0"
   }
-}
+  

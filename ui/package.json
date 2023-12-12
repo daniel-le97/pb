@@ -1,0 +1,28 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "pb-types": "bunx typed-pocketbase -o Database.d.ts"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/ui": "latest",
+    "@nuxtjs/eslint-module": "latest",
+    "nuxt": "^3.8.2",
+    "nuxt-security": "latest",
+    "vue": "^3.3.10",
+    "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "pocketbase": "^0.20.1",
+    "typed-pocketbase": "^0.0.8",
+    "valibot": "^0.24.1",
+    "zod": "^3.22.4"
+  }
+}
