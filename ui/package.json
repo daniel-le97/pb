@@ -14,6 +14,7 @@
     "@nuxt/devtools": "latest",
     "@nuxt/ui": "latest",
     "@nuxtjs/eslint-module": "latest",
+    "@vueuse/nuxt": "latest",
     "nuxt": "^3.8.2",
     "nuxt-security": "latest",
     "vue": "^3.3.10",

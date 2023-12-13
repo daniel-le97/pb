@@ -98,8 +98,12 @@ export type ProjectsResponse = {
 	buildDir?: string;
 	https?: boolean;
 	www?: boolean;
-	application?: any;
 	managed?: boolean;
+	installCommand?: string;
+	buildCommand?: string;
+	startCommand?: string;
+	ports?: string;
+	exposedPorts?: string;
 } & BaseCollectionRecord;
 
 export type ProjectsCreate = {
@@ -112,8 +116,12 @@ export type ProjectsCreate = {
 	buildDir?: string;
 	https?: boolean;
 	www?: boolean;
-	application?: any;
 	managed?: boolean;
+	installCommand?: string;
+	buildCommand?: string;
+	startCommand?: string;
+	ports?: string;
+	exposedPorts?: string;
 };
 
 export type ProjectsUpdate = {
@@ -126,8 +134,12 @@ export type ProjectsUpdate = {
 	buildDir?: string;
 	https?: boolean;
 	www?: boolean;
-	application?: any;
 	managed?: boolean;
+	installCommand?: string;
+	buildCommand?: string;
+	startCommand?: string;
+	ports?: string;
+	exposedPorts?: string;
 };
 
 export type ProjectsCollection = {
@@ -146,17 +158,23 @@ export type ProjectsCollection = {
 // ===== logs =====
 
 export type LogsResponse = {
-    project?: Array<string>;
+    project: string;
+	content?: string;
+	buildTime?: number;
 } & BaseCollectionRecord;
 
 export type LogsCreate = {
-	project?: MaybeArray<string>;
+	project: string;
+	content?: string;
+	buildTime?: number;
 };
 
 export type LogsUpdate = {
-	project?: MaybeArray<string>;
-	'project+'?: MaybeArray<string>;
-	'project-'?: MaybeArray<string>;
+	project?: string;
+	content?: string;
+	buildTime?: number;
+	'buildTime+'?: number;
+	'buildTime-'?: number;
 };
 
 export type LogsCollection = {
@@ -167,7 +185,7 @@ export type LogsCollection = {
 	create: LogsCreate;
 	update: LogsUpdate;
 	relations: {
-		project: ProjectsCollection[];
+		project: ProjectsCollection;
 	};
 };
 

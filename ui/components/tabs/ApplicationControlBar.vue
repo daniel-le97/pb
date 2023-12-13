@@ -7,11 +7,13 @@ interface EventWatch {
 const defaults: EventWatch = {}
 
 async function handleClick() {
-  console.log('building project')
 
-  const id = useRoute('projects-id').params.id
 
-  const { data, pending, error, refresh } = await useFetch(`/api/build/${id}`)
+  const id = useRoute().params.id
+
+  const project = useActiveProject().value
+ 
+  
 
 }
 </script>

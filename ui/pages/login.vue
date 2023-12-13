@@ -25,37 +25,56 @@ const url = pb.getFileUrl(pb.authStore.model!, pb.authStore.model!.avatar);
 import { z } from 'zod'
 import type { FormSubmitEvent } from '#ui/types'
 
-const schema = z.object({
-  email: z.string().email('Invalid email'),
-  password: z.string().min(8, 'Must be at least 8 characters')
-})
+setPageLayout( false);
 
-type Schema = z.output<typeof schema>
 
-const state = reactive({
+
+const schema = z.object(   {
+  email: z.string().email( 'Invalid email ' ).includes( '@' ),
+  password: z.string().min( 10, 'Must be at least 8 characters ' )
+} );
+
+type Schema = z.output<typeof schema>;
+
+const state = reactive( {
   email: undefined,
   password: undefined
-})
+} );
 
-async function onSubmit (event: FormSubmitEvent<Schema>) {
-  // Do something with data
-  console.log(event.data)
+// const loggedin = ref( usePB().authStore.model    );
+async function onSubmit ( event: FormSubmitEvent<Schema> ) {
+  const user = await usePB().admins.authWithPassword( event.data.email, event.data.password );
+  console.log( user );
+  // loggedin.value = user;
+}
+
+const loggedinUser = useUser()
+function logout () {
+  usePB().authStore.clear();;;;
 }
 </script>
 
 <template>
-  <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
-    <UFormGroup label="Email" name="email">
-      <UInput v-model="state.email" />
-    </UFormGroup>
-
-    <UFormGroup label="Password" name="password">
-      <UInput v-model="state.password" type="password" />
-    </UFormGroup>
-
-    <UButton type="submit">
-      Submit
-    </UButton>
-  </UForm>
+          <div>
+            <UForm :schema=" schema " :state=" state " class="space-y-4" @submit=" onSubmit ">
+              <UFormGroup label="Email" name="email">
+                <UInput v-model=" state.email " />
+              </UFormGroup>
+      
+              <UFormGroup label="Password" name="password">
+                <UInput v-model=" state.password " type="password" />
+              </UFormGroup>
+      
+              <UButton type="submit">
+                Submit
+              </UButton>
+            </UForm>
+          <div v-if="loggedinUser ">
+          {{ loggedinUser }}
+            <button @click=" logout ">
+              logout
+          </button>
+        </div>
+      </div>
 </template>
 

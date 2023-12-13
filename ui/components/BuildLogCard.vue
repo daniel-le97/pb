@@ -10,7 +10,7 @@ const displayDuration = computed(() => {
   else
     return `${durationInSeconds.value.toFixed(2)}s`
 })
-const timeago = useTimeAgo(props.date)
+// const timeago = timeago(props.date)
 </script>
 
 <template>
@@ -27,7 +27,7 @@ const timeago = useTimeAgo(props.date)
       </div>
       <div class="w-2/3  text-sm flex flex-col items-center justify-center text-center">
         <div class="text-xs">
-          {{ timeago }}
+          <!-- {{ timeago }} -->
         </div>
         <div class="flex gap-1 ">
           <span>finished in </span> <strong> {{ displayDuration }}</strong>

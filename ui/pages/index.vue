@@ -6,6 +6,7 @@
     </div>
 </template>
 <script setup>
+definePageMeta({middleware: ['auth']})
 const state = ref();
 state.value = await usePB().collection( 'git' ).getFullList();
 
