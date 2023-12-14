@@ -1,4 +1,4 @@
-import type { ProjectsResponse } from "../Database";
+import type { ProjectsResponse } from '../Database'
 
 export const useUser = () => useState('user')
 

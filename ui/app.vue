@@ -1,3 +1,7 @@
+<script setup>
+
+</script>
+
 <template>
   <div class="flex w-full  min-h-screen">
     <div class="">
@@ -7,7 +11,3 @@
     <UNotifications />
   </div>
 </template>
-
-<script setup>
-
-</script>

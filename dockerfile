@@ -16,7 +16,6 @@ COPY ./ ./
 
 # Add this line to copy the "static" folder into the image
 
-
 RUN go build -o pb-build
 
 EXPOSE 8080

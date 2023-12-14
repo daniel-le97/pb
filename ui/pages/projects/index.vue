@@ -24,7 +24,7 @@ const projects = await usePB().collection('projects').getFullList()
           <UDivider class="mt-2" />
           <div class="p-2 flex justify-between">
             <div>
-              {{ template.created}}
+              {{ template.created }}
             </div>
             <Icon name="material-symbols-light:deployed-code-outline" class="text-green-500" size="25" />
           </div>

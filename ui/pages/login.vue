@@ -25,56 +25,70 @@ const url = pb.getFileUrl(pb.authStore.model!, pb.authStore.model!.avatar);
 import { z } from 'zod'
 import type { FormSubmitEvent } from '#ui/types'
 
-setPageLayout( false);
+setPageLayout(false)
 
+const schema = z.object({
+  email: z.string().email('Invalid email ').includes('@'),
+  password: z.string().min(10, 'Must be at least 8 characters '),
+})
 
+type Schema = z.output<typeof schema>
 
-const schema = z.object(   {
-  email: z.string().email( 'Invalid email ' ).includes( '@' ),
-  password: z.string().min( 10, 'Must be at least 8 characters ' )
-} );
-
-type Schema = z.output<typeof schema>;
-
-const state = reactive( {
+const state = reactive({
   email: undefined,
-  password: undefined
-} );
+  password: undefined,
+})
 
 // const loggedin = ref( usePB().authStore.model    );
-async function onSubmit ( event: FormSubmitEvent<Schema> ) {
-  const user = await usePB().admins.authWithPassword( event.data.email, event.data.password );
-  console.log( user );
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+  const user = await usePB().admins.authWithPassword(event.data.email, event.data.password)
+  console.log(user)
   // loggedin.value = user;
 }
 
 const loggedinUser = useUser()
-function logout () {
-  usePB().authStore.clear();;;;
+function logout() {
+  usePB().authStore.clear()
 }
+
+const counter = useCookie('counter')
+
+counter.value = counter.value || Math.round(Math.random() * 1000)
 </script>
 
 <template>
-          <div>
-            <UForm :schema=" schema " :state=" state " class="space-y-4" @submit=" onSubmit ">
-              <UFormGroup label="Email" name="email">
-                <UInput v-model=" state.email " />
-              </UFormGroup>
-      
-              <UFormGroup label="Password" name="password">
-                <UInput v-model=" state.password " type="password" />
-              </UFormGroup>
-      
-              <UButton type="submit">
-                Submit
-              </UButton>
-            </UForm>
-          <div v-if="loggedinUser ">
-          {{ loggedinUser }}
-            <button @click=" logout ">
-              logout
-          </button>
-        </div>
-      </div>
-</template>
+  <div>
+    <div>
+      <h1>Counter: {{ counter || '-' }}</h1>
+      <button @click="counter = null">
+        reset
+      </button>
+      <button @click="counter--">
+        -
+      </button>
+      <button @click="counter++">
+        +
+      </button>
+    </div>
 
+    <UForm :schema=" schema " :state=" state " class="space-y-4" @submit=" onSubmit ">
+      <UFormGroup label="Email" name="email">
+        <UInput v-model=" state.email " />
+      </UFormGroup>
+
+      <UFormGroup label="Password" name="password">
+        <UInput v-model=" state.password " type="password" />
+      </UFormGroup>
+
+      <UButton type="submit">
+        Submit
+      </UButton>
+    </UForm>
+    <div v-if="loggedinUser ">
+      {{ loggedinUser }}
+      <button @click=" logout ">
+        logout
+      </button>
+    </div>
+  </div>
+</template>

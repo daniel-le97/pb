@@ -7,14 +7,9 @@ interface EventWatch {
 const defaults: EventWatch = {}
 
 async function handleClick() {
-
-
   const id = useRoute().params.id
 
   const project = useActiveProject().value
- 
-  
-
 }
 </script>
 

@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { z } from 'zod'
-import consola from 'consola'
 
 const schema = z.object({
-  repoUrl: z.string().min(1),
+  repoUrl: z.string(),
   installCommand: z.string().nullable(),
   buildCommand: z.string().nullable(),
   startCommand: z.string().nullable(),
-  buildPack: z.string().min(1, 'Must be at least 8 characters'),
+  buildPack: z.union([z.literal('nixpacks'), z.literal('dockerfile'), z.literal('docker-compose')]),
   // baseDirectory: z.string().default('/'),
   // publishDirectory: z.string().default('/'),
   // branch: z.string().default('main'),
@@ -18,8 +17,6 @@ type Schema = z.output<typeof schema>
 const state = useActiveProject()
 // console.log(state.value)
 
-
-
 const options = [
   { label: 'nixpacks', value: 'nixpacks' },
   { label: 'dockerfile', value: 'dockerfile' },
@@ -27,7 +24,6 @@ const options = [
 ]
 
 async function onSubmit() {
- 
 
 }
 
@@ -37,7 +33,7 @@ async function onSubmit() {
 <template>
   <div v-if="state">
     <UForm :schema=" schema " :state=" state " class="space-y-4" @submit="onSubmit">
-      <UFormGroup label="Repo URL" name="repoUrl" >
+      <UFormGroup label="Repo URL" name="repoUrl">
         <UInput v-model=" state.repoURL " type="url" />
       </UFormGroup>
 
