@@ -92,6 +92,121 @@
         "options": {}
     },
     {
+        "id": "6po51li0eihk83d",
+        "name": "logs",
+        "type": "base",
+        "system": false,
+        "schema": [
+            {
+                "system": false,
+                "id": "hwh92s3r",
+                "name": "project",
+                "type": "relation",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "collectionId": "tqlcamhhas2xzr7",
+                    "cascadeDelete": false,
+                    "minSelect": null,
+                    "maxSelect": null,
+                    "displayFields": null
+                }
+            }
+        ],
+        "indexes": [],
+        "listRule": null,
+        "viewRule": null,
+        "createRule": null,
+        "updateRule": null,
+        "deleteRule": null,
+        "options": {}
+    },
+    {
+        "id": "67nwlz2znzqld2l",
+        "name": "portainer",
+        "type": "base",
+        "system": false,
+        "schema": [
+            {
+                "system": false,
+                "id": "i73hs3kj",
+                "name": "template",
+                "type": "json",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "maxSize": 2000000
+                }
+            }
+        ],
+        "indexes": [],
+        "listRule": null,
+        "viewRule": null,
+        "createRule": null,
+        "updateRule": null,
+        "deleteRule": null,
+        "options": {}
+    },
+    {
+        "id": "5c1oykad2csm1dk",
+        "name": "gitSource",
+        "type": "base",
+        "system": false,
+        "schema": [
+            {
+                "system": false,
+                "id": "7te191mo",
+                "name": "app_id",
+                "type": "text",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": null,
+                    "pattern": ""
+                }
+            },
+            {
+                "system": false,
+                "id": "gkd9vvw8",
+                "name": "webhook_secret",
+                "type": "text",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": null,
+                    "pattern": ""
+                }
+            },
+            {
+                "system": false,
+                "id": "yfrikmiq",
+                "name": "private_key",
+                "type": "text",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": null,
+                    "pattern": ""
+                }
+            }
+        ],
+        "indexes": [],
+        "listRule": null,
+        "viewRule": null,
+        "createRule": null,
+        "updateRule": null,
+        "deleteRule": null,
+        "options": {}
+    },
+    {
         "id": "tqlcamhhas2xzr7",
         "name": "projects",
         "type": "base",
@@ -211,18 +326,6 @@
             },
             {
                 "system": false,
-                "id": "yygtahnw",
-                "name": "application",
-                "type": "json",
-                "required": false,
-                "presentable": false,
-                "unique": false,
-                "options": {
-                    "maxSize": 2000000
-                }
-            },
-            {
-                "system": false,
                 "id": "mj5ihkdo",
                 "name": "managed",
                 "type": "bool",
@@ -230,84 +333,11 @@
                 "presentable": false,
                 "unique": false,
                 "options": {}
-            }
-        ],
-        "indexes": [],
-        "listRule": null,
-        "viewRule": null,
-        "createRule": null,
-        "updateRule": null,
-        "deleteRule": null,
-        "options": {}
-    },
-    {
-        "id": "6po51li0eihk83d",
-        "name": "logs",
-        "type": "base",
-        "system": false,
-        "schema": [
+            },
             {
                 "system": false,
-                "id": "hwh92s3r",
-                "name": "project",
-                "type": "relation",
-                "required": false,
-                "presentable": false,
-                "unique": false,
-                "options": {
-                    "collectionId": "tqlcamhhas2xzr7",
-                    "cascadeDelete": false,
-                    "minSelect": null,
-                    "maxSelect": null,
-                    "displayFields": null
-                }
-            }
-        ],
-        "indexes": [],
-        "listRule": null,
-        "viewRule": null,
-        "createRule": null,
-        "updateRule": null,
-        "deleteRule": null,
-        "options": {}
-    },
-    {
-        "id": "67nwlz2znzqld2l",
-        "name": "portainer",
-        "type": "base",
-        "system": false,
-        "schema": [
-            {
-                "system": false,
-                "id": "i73hs3kj",
-                "name": "template",
-                "type": "json",
-                "required": false,
-                "presentable": false,
-                "unique": false,
-                "options": {
-                    "maxSize": 2000000
-                }
-            }
-        ],
-        "indexes": [],
-        "listRule": null,
-        "viewRule": null,
-        "createRule": null,
-        "updateRule": null,
-        "deleteRule": null,
-        "options": {}
-    },
-    {
-        "id": "5c1oykad2csm1dk",
-        "name": "gitSource_duplicate",
-        "type": "base",
-        "system": false,
-        "schema": [
-            {
-                "system": false,
-                "id": "7te191mo",
-                "name": "app_id",
+                "id": "wnzh6cbk",
+                "name": "startCommand",
                 "type": "text",
                 "required": false,
                 "presentable": false,
@@ -320,8 +350,8 @@
             },
             {
                 "system": false,
-                "id": "gkd9vvw8",
-                "name": "webhook_secret",
+                "id": "jzhqgjr9",
+                "name": "buildCommand",
                 "type": "text",
                 "required": false,
                 "presentable": false,
@@ -334,8 +364,8 @@
             },
             {
                 "system": false,
-                "id": "yfrikmiq",
-                "name": "private_key",
+                "id": "bti7wkff",
+                "name": "installCommand",
                 "type": "text",
                 "required": false,
                 "presentable": false,
@@ -386,6 +416,37 @@
                 "presentable": false,
                 "unique": false,
                 "options": {}
+            },
+            {
+                "system": false,
+                "id": "vzxfbjdv",
+                "name": "status",
+                "type": "select",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "maxSelect": 1,
+                    "values": [
+                        "finished",
+                        "failed",
+                        "in-queue"
+                    ]
+                }
+            },
+            {
+                "system": false,
+                "id": "6uhw6urm",
+                "name": "logs",
+                "type": "text",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": null,
+                    "pattern": ""
+                }
             }
         ],
         "indexes": [],
